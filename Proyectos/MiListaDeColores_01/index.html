@@ -6,10 +6,11 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola 3</h1>
+    <h1>Hola 4</h1>
     <script src="./src/js/model/Model.js"></script>
     <script src="./src/js/observer/Observers.js"></script>
     <script src="./src/js/modelView/ModelView.js"></script>
+    <script src="./src/js/libs/ArrayMethod.js"></script>
     <script>
       const colorRed = new Color(256, 0, 0, "RED");
       const colorGreen = new Color(0, 256, 0, "GREEN");
@@ -22,6 +23,15 @@
       const observerConsole = new Observer(modelViewConsole);
 
       model.subscribe(observerConsole);
+
+      const observerMethodConcat = new ObserverMethod(
+        modelViewConsole,
+        "concat",
+        ArrayMethod["concat"]
+      );
+      model.subscribe(observerMethodConcat);
+
+      console.log(model.getList());
 
       model.addColor(colorRed);
       console.log(model.getList());
