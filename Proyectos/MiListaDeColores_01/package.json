@@ -1,0 +1,12 @@
+{
+  "name": "parte_02-observer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev_01": "npx servor . index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

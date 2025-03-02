@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hola</h1>
+    <script src="./src/js/model/Model.js"></script>
+    <script>
+      const colorRed = new Color(256, 0, 0, "RED");
+      const colorGreen = new Color(0, 256, 0, "GREEN");
+      const colorBlue = new Color(0, 0, 256, "BLUE");
+
+      const model = new Model();
+      model.addColor(colorRed);
+      console.log(model.getList());
+      console.log(
+        `%c${model.getList()[0].getName()} ${model.getList()[0].getAll()}`,
+        `color: ${model.getList()[0].getName()}; font-size: 14px;`
+      );
+
+      model.addColor(colorGreen);
+      console.log(model.getList());
+      console.log(
+        `%c${model.getList()[1].getName()} ${model.getList()[1].getAll()}`,
+        `color: ${model.getList()[1].getName()}; font-size: 14px;`
+      );
+
+      model.addColor(colorBlue);
+      console.log(model.getList());
+      console.log(
+        `%c${model.getList()[2].getName()} ${model.getList()[2].getAll()}`,
+        `color: ${model.getList()[2].getName()}; font-size: 14px;`
+      );
+    </script>
+  </body>
+</html>
