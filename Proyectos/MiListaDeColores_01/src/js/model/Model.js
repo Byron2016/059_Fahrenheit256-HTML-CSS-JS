@@ -35,6 +35,18 @@ const Color = function (r, g, b, name) {
   };
 };
 
+const FactoryColor = {
+  RED: function () {
+    return new Color(256, 0, 0, "RED");
+  },
+  GREEN: function () {
+    return new Color(0, 256, 0, "GREEN");
+  },
+  BLUE: function () {
+    return new Color(0, 0, 256, "BLUE");
+  },
+};
+
 const Model = function () {
   //Private
   const _colorsList = [];

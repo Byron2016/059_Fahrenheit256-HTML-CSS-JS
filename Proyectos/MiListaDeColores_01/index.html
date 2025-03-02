@@ -6,15 +6,15 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola 5</h1>
+    <h1>Hola 6</h1>
     <script src="./src/js/model/Model.js"></script>
     <script src="./src/js/observer/Observers.js"></script>
     <script src="./src/js/modelView/ModelView.js"></script>
     <script src="./src/js/libs/ArrayMethod.js"></script>
     <script>
-      const colorRed = new Color(256, 0, 0, "RED");
-      const colorGreen = new Color(0, 256, 0, "GREEN");
-      const colorBlue = new Color(0, 0, 256, "BLUE");
+      const colorRed = FactoryColor.RED();
+      const colorGreen = FactoryColor.GREEN();
+      const colorBlue = FactoryColor.BLUE();
 
       const model = new Model();
 
