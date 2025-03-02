@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev_01": "npx servor . index.html"
+    "dev_01": "npx servor . index.html",
+    "dev_041": "npx servor Parte_04-a_strategy index.html"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Strategy pattern</h1>
+    <script src="./src/js/Strategy.js"></script>
+    <script>
+      // Uso del patrón Strategy
+      const context = new Context(new ConcreteStrategyA());
+      console.log(context.executeStrategy("datos1")); // Ejecutando Estrategia A con datos1
+
+      context.setStrategy(new ConcreteStrategyB());
+      console.log(context.executeStrategy("datos2")); // Ejecutando Estrategia B con datos2
+    </script>
+  </body>
+</html>
