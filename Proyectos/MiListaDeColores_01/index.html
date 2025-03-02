@@ -6,17 +6,22 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola 2</h1>
+    <h1>Hola 3</h1>
     <script src="./src/js/model/Model.js"></script>
     <script src="./src/js/observer/Observers.js"></script>
+    <script src="./src/js/modelView/ModelView.js"></script>
     <script>
       const colorRed = new Color(256, 0, 0, "RED");
       const colorGreen = new Color(0, 256, 0, "GREEN");
       const colorBlue = new Color(0, 0, 256, "BLUE");
 
       const model = new Model();
-      const observer = new Observer();
-      model.subscribe(observer);
+
+      const modelViewConsole = new ModelViewConsole(model);
+
+      const observerConsole = new Observer(modelViewConsole);
+
+      model.subscribe(observerConsole);
 
       model.addColor(colorRed);
       console.log(model.getList());

@@ -41,7 +41,7 @@ const Model = function () {
   const _observers = [];
   const _notify = function (event) {
     _observers.forEach((observer) => {
-      observer.update(event);
+      observer.update(_colorsList, event);
     });
   };
 
