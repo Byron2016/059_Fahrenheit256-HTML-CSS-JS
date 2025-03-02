@@ -38,6 +38,12 @@ const Color = function (r, g, b, name) {
 const Model = function () {
   //Private
   const _colorsList = [];
+  const _observers = [];
+  const _notify = function (event) {
+    _observers.forEach((observer) => {
+      observer.update(event);
+    });
+  };
 
   //Public
   return {
@@ -46,9 +52,19 @@ const Model = function () {
     },
     addColor: function (newColor) {
       _colorsList.push(newColor);
+      _notify("ADD");
     },
     removeColor: function (index) {
       _colorsList.splice(index, 1);
+      _notify("REMOVE");
+    },
+
+    // Observer pattern
+    subscribe: function (observer) {
+      _observers.push(observer);
+    },
+    unSubscribe: function (observer) {
+      _observers = _observers.filter((obs) => obs !== observer);
     },
   };
 };

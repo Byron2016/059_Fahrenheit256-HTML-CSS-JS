@@ -6,14 +6,18 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola</h1>
+    <h1>Hola 2</h1>
     <script src="./src/js/model/Model.js"></script>
+    <script src="./src/js/observer/Observers.js"></script>
     <script>
       const colorRed = new Color(256, 0, 0, "RED");
       const colorGreen = new Color(0, 256, 0, "GREEN");
       const colorBlue = new Color(0, 0, 256, "BLUE");
 
       const model = new Model();
+      const observer = new Observer();
+      model.subscribe(observer);
+
       model.addColor(colorRed);
       console.log(model.getList());
       console.log(
@@ -34,6 +38,9 @@
         `%c${model.getList()[2].getName()} ${model.getList()[2].getAll()}`,
         `color: ${model.getList()[2].getName()}; font-size: 14px;`
       );
+
+      model.removeColor(1);
+      console.log(model.getList());
     </script>
   </body>
 </html>
