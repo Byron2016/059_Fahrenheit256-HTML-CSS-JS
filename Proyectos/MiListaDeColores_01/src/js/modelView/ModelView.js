@@ -20,11 +20,30 @@ const ModelViewConsole = function (model) {
     },
     reloadMethod: function (data, nameMethod, method) {
       const result = method(data);
-      const print = ConvertArrayToString(result);
-      console.log(
-        `%c${nameMethod} : ${print}`,
-        `color: Yellow; font-size: 14px;`
-      );
+      // const print = ConvertArrayToString(result);
+      // console.log(
+      //   `%c${nameMethod} : ${print}`,
+      //   `color: Yellow; font-size: 14px;`
+      // );
+      if (Array.isArray(result)) {
+        const print = ConvertArrayToString(result);
+        console.log(
+          `%c${nameMethod} : ${print}`,
+          `color: Yellow; font-size: 14px;`
+        );
+      } else {
+        if (typeof result === "object") {
+          console.log(
+            `%c${nameMethod} : ${result.getName()}`,
+            `color: Yellow; font-size: 14px;`
+          );
+        } else {
+          console.log(
+            `%c${nameMethod} : ${result}`,
+            `color: Yellow; font-size: 14px;`
+          );
+        }
+      }
     },
   };
 };

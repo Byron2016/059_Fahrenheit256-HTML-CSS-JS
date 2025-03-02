@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola 4</h1>
+    <h1>Hola 5</h1>
     <script src="./src/js/model/Model.js"></script>
     <script src="./src/js/observer/Observers.js"></script>
     <script src="./src/js/modelView/ModelView.js"></script>
@@ -21,15 +21,32 @@
       const modelViewConsole = new ModelViewConsole(model);
 
       const observerConsole = new Observer(modelViewConsole);
-
       model.subscribe(observerConsole);
 
+      /*
       const observerMethodConcat = new ObserverMethod(
         modelViewConsole,
         "concat",
         ArrayMethod["concat"]
       );
       model.subscribe(observerMethodConcat);
+
+      const observerMethodFilter = new ObserverMethod(
+        modelViewConsole,
+        "filter",
+        ArrayMethod["filter"]
+      );
+      model.subscribe(observerMethodFilter);
+      */
+
+      for (var method in ArrayMethod) {
+        const observerMethod = new ObserverMethod(
+          modelViewConsole,
+          method,
+          ArrayMethod[method]
+        );
+        model.subscribe(observerMethod);
+      }
 
       console.log(model.getList());
 
@@ -56,6 +73,24 @@
 
       model.removeColor(1);
       console.log(model.getList());
+
+      // Lista : [RED,BLUE,RED]
+      // concat : [RED,BLUE,RED,BLUE] // A la Lista le concatena el color BLUE
+      // filter : [BLUE] // A la Lista le filtra el color RED
+      model.addColor(colorRed);
+      console.log(
+        `%cAgregado el color RED`,
+        `color: ${model.getList()[0].getName()}; font-size: 14px;`
+      );
+
+      // Lista : [RED,BLUE,RED]
+      // concat : [RED,BLUE,RED,BLUE] // A la Lista le concatena el color BLUE
+      // filter : [BLUE] // A la Lista le filtra el color RED
+      model.addColor(colorGreen);
+      console.log(
+        `%cAgregado el color Green`,
+        `color: ${model.getList()[3].getName()}; font-size: 14px;`
+      );
     </script>
   </body>
 </html>
